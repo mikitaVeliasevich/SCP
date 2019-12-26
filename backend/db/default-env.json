@@ -1,0 +1,33 @@
+{
+  "VCAP_SERVICES": {
+    "hanatrial": [
+      {
+        "label": "hanatrial",
+        "provider": null,
+        "plan": "hdi-shared",
+        "name": "lev_hdi",
+        "tags": [
+          "hana",
+          "database",
+          "relational"
+        ],
+        "instance_name": "lev_hdi",
+        "binding_name": null,
+        "credentials": {
+          "host": "zeus.hana.prod.eu-central-1.whitney.dbaas.ondemand.com",
+          "port": "23803",
+          "encrypt": true,
+          "driver": "com.sap.db.jdbc.Driver",
+          "url": "jdbc:sap://zeus.hana.prod.eu-central-1.whitney.dbaas.ondemand.com:23803?encrypt=true&validateCertificate=true&currentschema=VEL_SCP",
+          "schema": "VEL_SCP",
+          "hdi_user": "VEL_SCP_C8I2Z3BYDOAG7QIEK8QUDC4BD_DT",
+          "hdi_password": "Pj2JGsn1W7W_jihfzIXjBGzhKW6ZhLYwKl1HnPdTuPLkAo_H3MxrFTJKW6pec4iYp3gn7uf7QC1c-K5_6SihS-KH5Jjcb5Ekj6kUdltLUYHOb3ukBqsW4IGrjR6d-VJS",
+          "user": "VEL_SCP_C8I2Z3BYDOAG7QIEK8QUDC4BD_RT",
+          "password": "Mi0ODcrM1joW4zJZWr-HxxmH0bfHfZhta9b8cSyklNWqukdwj4Yc57dyYSJ1rXzMFQ6MQw1AM-CPOALa_wDQ8nds_7tG_diQ6AW1veB28Vyj2LPTx4O7Qj--p0Dtc6DE"
+        },
+        "syslog_drain_url": null,
+        "volume_mounts": []
+      }
+    ]
+  }
+}

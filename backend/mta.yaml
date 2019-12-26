@@ -1,0 +1,47 @@
+﻿ID: vel_backend
+_schema-version: 3.1.0
+version: 1.0.0
+
+modules:
+    -
+        name: vel_db
+        type: hdb
+        path: db
+        provides:
+            - {name: vel_db, public: true}
+        parameters:
+            memory: 256M
+            disk-quota: 256M
+        requires:
+            - {name: vel_hdi}
+    -
+        name: vel_srv
+        type: nodejs
+        path: srv
+        properties:
+            XS_APP_LOG_LEVEL: debug
+        parameters:
+            memory: 256M
+            disk-quota: 1024M
+        provides:
+            - {name: vel_srv, public: true, properties: {url: '${default-url}'}}
+        requires:
+            - {name: vel_db}
+            - {name: vel_hdi}
+            - {name: vel_uaa}
+            - {name: vel_dest}
+            - {name: vel_conn}
+
+resources:
+    -
+        name: vel_hdi
+        type: org.cloudfoundry.existing-service
+    -
+        name: vel_uaa
+        type: org.cloudfoundry.existing-service
+    -
+        name: vel_dest
+        type: org.cloudfoundry.existing-service
+    -
+        name: vel_conn
+        type: org.cloudfoundry.existing-service
