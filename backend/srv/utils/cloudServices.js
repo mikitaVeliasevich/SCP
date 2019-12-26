@@ -6,32 +6,32 @@ const request = require('request-promise');
 const xsenv = require("@sap/xsenv");
 
 //begin----------GETTING CONFIGURATIONS-------------
-const pt_uaa = xsenv.getServices({
+const vel_uaa = xsenv.getServices({
     xsuaa: {
         tag: "xsuaa"
     }
 }).xsuaa;
 
-const pt_conn = xsenv.getServices({
+const vel_conn = xsenv.getServices({
     conn: {
         tag: "connectivity"
     }
 }).conn;
 
-const pt_dest = xsenv.getServices({
+const vel_dest = xsenv.getServices({
     dest: {
         tag: "destination"
     }
 }).dest;
 
-const sUaaUrl = pt_uaa.url;
+const sUaaUrl = vel_uaa.url;
 
-const sConnProxy = `http://${pt_conn.onpremise_proxy_host}:${pt_conn.onpremise_proxy_port}`;
-const sConnSecret = `${pt_conn.clientid}:${pt_conn.clientsecret}`;
+const sConnProxy = `http://${vel_conn.onpremise_proxy_host}:${vel_conn.onpremise_proxy_port}`;
+const sConnSecret = `${vel_conn.clientid}:${vel_conn.clientsecret}`;
 const sConnCredentials = Buffer.from(sConnSecret).toString('base64');
 
-const sDestUrl = pt_dest.url;
-const sDestSecret = `${pt_dest.clientid}:${pt_dest.clientsecret}`;
+const sDestUrl = vel_dest.url;
+const sDestSecret = `${vel_dest.clientid}:${vel_dest.clientsecret}`;
 const sDestCredentials = Buffer.from(sDestSecret).toString('base64');
 //end----------GETTING CONFIGURATIONS-------------
 
@@ -63,10 +63,10 @@ const getUaaToken = async (sCredentials, clientId) => {
 
 //begin----------GET LIST OF ON PREMISE SYSTEMS DEFINED IN CLOUD-------------
 const getOnPremiseSystems = async () => {
-    const sDestAccessToken = (await getUaaToken(sDestCredentials, pt_dest.clientid)).access_token;
+    const sDestAccessToken = (await getUaaToken(sDestCredentials, vel_dest.clientid)).access_token;
 
     const oRequestOptions = {
-        url: `${pt_dest.uri}/destination-configuration/v1/subaccountDestinations`,
+        url: `${vel_dest.uri}/destination-configuration/v1/subaccountDestinations`,
         headers: {
             'Authorization': 'Bearer ' + sDestAccessToken
         }
@@ -79,10 +79,10 @@ const getOnPremiseSystems = async () => {
 
 //begin----------GET ON PREMISE SYSTEMS DEFINED IN CLOUD BY ID-------------
 const getOnPremiseSystemById = async systemId => {
-    const sDestAccessToken = (await getUaaToken(sDestCredentials, pt_dest.clientid)).access_token;
+    const sDestAccessToken = (await getUaaToken(sDestCredentials, vel_dest.clientid)).access_token;
 
     const oRequestOptions = {
-        url: `${pt_dest.uri}/destination-configuration/v1/destinations/${systemId}`,
+        url: `${vel_dest.uri}/destination-configuration/v1/destinations/${systemId}`,
         headers: {
             'Authorization': 'Bearer ' + sDestAccessToken
         }
@@ -99,7 +99,7 @@ const getOnPremiseSystemData = async (onPremiseSystem, sLang) => {
         throw new Error("Error");
     }
 
-    const sConnAccessToken = (await getUaaToken(sConnCredentials, pt_conn.clientid)).access_token;
+    const sConnAccessToken = (await getUaaToken(sConnCredentials, vel_conn.clientid)).access_token;
 
     const sEndpoint = onPremiseSystem.destinationConfiguration.URL +
 //-----------change code here to get another data
