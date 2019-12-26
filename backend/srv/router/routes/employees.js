@@ -72,15 +72,15 @@ module.exports = () => {
         }
     });
 
-    app.put("/", async (req, res, next) => {
+    app.put("/:eid", async (req, res, next) => {
         try {
             const db = new dbClass(req.db);
-
+            const eid = req.params.eid;
             const oEmployee = _prepareObject(req.body, req);
             const sSql = "UPDATE \"EMPLOYEE\" SET \"PID\" = ?, \"NAME\" = ?, \"SURNAME\" = ?, \"EMAIL\" = ?, \"PHONENUMBER\" = ?  WHERE \"EID\" = ?";
 
             console.log(oEmployee);
-            const aValues = [ oEmployee.eid, oEmployee.pid,  oEmployee.name, oEmployee.surname, oEmployee.email, oEmployee.phoneNumber];
+            const aValues = [ oEmployee.pid,  oEmployee.name, oEmployee.surname, oEmployee.email, oEmployee.phoneNumber, oEmployee.eid = eid];
 
             await db.executeUpdate(sSql, aValues);
 
