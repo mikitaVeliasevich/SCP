@@ -35,6 +35,9 @@
     "debugIdea": "node %NODE_DEBUG_OPTION% server.js --debug",
     "build": "cds build/all --clean"
   },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
   "private": true,
   "i18n": {
     "folders": [

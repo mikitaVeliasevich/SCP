@@ -31,32 +31,21 @@ module.exports = class {
         this.client.promisePrepare = this.util.promisify(this.client.prepare);
     }
 
-    async getNextval(seqName) {
-        try {
-						const sSql = `SELECT "${seqName}".NEXTVAL AS "ID" FROM "DUMMY"`;
-            const statement = await this.preparePromisified(sSql);
-            const result = await this.statementExecPromisified(statement, []);
-
-            if (result.length > 0) {
-                return result[0].ID;
-            }
-        } catch (e) {
-	        throw new Error("Internal error");
-        }
-
-        throw new Error("Internal error");
-    }
-
-    async selectAllData(tableName) {
-        try {
-            const sSql = `SELECT * FROM ${tableName}`;
-            const statement = await this.preparePromisified(sSql);
-            return await this.statementExecPromisified(statement, []);
-        } catch (e) {
-            throw new Error("Error during executing sql: " + sSql + ". Error: " + JSON.stringify(e));
-        }
-    }
-
+    // async getNextval(seqName) {
+    //     try {
+    //         const sSql = `SELECT "${seqName}".NEXTVAL AS "ID" FROM "DUMMY"`;
+    //         const statement = await this.preparePromisified(sSql);
+    //         const result = await this.statementExecPromisified(statement, []);
+    //
+    //         if (result.length > 0) {
+    //             return result[0].ID;
+    //         }
+    //     } catch (e) {
+	//         throw new Error("Internal error");
+    //     }
+    //
+    //     throw new Error("Internal error");
+    // }
 
     async executeUpdate(sSql, aValues) {
         try {
