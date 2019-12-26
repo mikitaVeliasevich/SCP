@@ -20,10 +20,10 @@
           "driver": "com.sap.db.jdbc.Driver",
           "url": "jdbc:sap://zeus.hana.prod.eu-central-1.whitney.dbaas.ondemand.com:23803?encrypt=true&validateCertificate=true&currentschema=VEL_SCP",
           "schema": "VEL_SCP",
-          "hdi_user": "VEL_SCP_C8I2Z3BYDOAG7QIEK8QUDC4BD_DT",
-          "hdi_password": "Pj2JGsn1W7W_jihfzIXjBGzhKW6ZhLYwKl1HnPdTuPLkAo_H3MxrFTJKW6pec4iYp3gn7uf7QC1c-K5_6SihS-KH5Jjcb5Ekj6kUdltLUYHOb3ukBqsW4IGrjR6d-VJS",
-          "user": "VEL_SCP_C8I2Z3BYDOAG7QIEK8QUDC4BD_RT",
-          "password": "Mi0ODcrM1joW4zJZWr-HxxmH0bfHfZhta9b8cSyklNWqukdwj4Yc57dyYSJ1rXzMFQ6MQw1AM-CPOALa_wDQ8nds_7tG_diQ6AW1veB28Vyj2LPTx4O7Qj--p0Dtc6DE"
+          "hdi_user": "VEL_SCP_5AL3TO80K1C1PFST5OEBPWAJ8_DT",
+          "hdi_password": "If5zmg2xfWURmEFPk2..zEdaUm2SjQEX2COT7ci-HC25q_dbw6jEiXMRbouv.XVhlY_zPTTk29Sxe0urRTz3t-g97DBpUT3ScZ_lAgwEnV2uum-_osQCiccGdcW2LX8x",
+          "user": "VEL_SCP_5AL3TO80K1C1PFST5OEBPWAJ8_RT",
+          "password": "If0pziB-N4GhBP0-OLpRB6POkdfB80nbHXBQnRbUcYlUP3zvMSKLPhKDNoGreHG.6UhP08YpmIe_0IZHRzw0ItJgkaGlqf6khaX6IXieh0XmGnAU4IqPA2TJoGU2JZhM"
         },
         "syslog_drain_url": null,
         "volume_mounts": []
