@@ -3,6 +3,7 @@
   "description": "Generated from ../package.json, do not change!",
   "version": "1.0.0",
   "dependencies": {
+    "@sap/cloud-sdk-vdm-business-partner-service": "^1.0.0",
     "@sap/audit-logging": "^2.3.0",
     "@sap/cds": "3.5.2",
     "@sap/hana-client": "2.3.144",
