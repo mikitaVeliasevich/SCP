@@ -1,0 +1,42 @@
+﻿ID: vel_router
+_schema-version: 3.1.0
+version: 1.0.0
+
+modules:
+    -
+        name: router
+        type: nodejs
+        path: ./
+        properties:
+            XS_APP_LOG_LEVEL: debug
+        build-parameters:
+            ignore: [".git/", ".idea/", ".gitignore", ".gitlab-ci.yml", "mta.jar", "mta.yaml"]
+        parameters:
+            disk-quota: 256M
+            memory: 128M
+        requires:
+            - {name: vel_router}
+            - {name: vel_conn}
+            - {name: vel_dest}
+            - {name: vel_uaa}
+            - {name: vel_srv, group: destinations, properties: {name: vel_srv, url: '~{url}', forwardAuthToken: true}}
+resources:
+    -
+        name: vel_srv
+        type: configuration
+        parameters:
+            provider-nid: mta
+            provider-id: 'vel_backend:vel_srv'
+            version: '>=0.0.1'
+    -
+        name: vel_dest
+        type: org.cloudfoundry.existing-service
+    -
+        name: vel_conn
+        type: org.cloudfoundry.existing-service
+    -
+        name: vel_uaa
+        type: org.cloudfoundry.existing-service
+    -
+        name: vel_router
+        type: org.cloudfoundry.existing-service

@@ -14,6 +14,22 @@ resources:
             hdi-container-name: '${service-name}'
         type: com.sap.xs.hdi-container
     -
+        name: vel_deployer
+        parameters:
+            service-plan: app-host
+            service: html5-apps-repo
+            config: {sizeLimit: 1}
+            shared: true
+        type: org.cloudfoundry.managed-service
+    -
+        name: vel_router
+        parameters:
+            service-plan: app-runtime
+            service: html5-apps-repo
+            shared: true
+        type: org.cloudfoundry.managed-service
+
+    -
         name: vel_conn
         type: org.cloudfoundry.managed-service
         parameters:
