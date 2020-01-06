@@ -3,8 +3,8 @@
   "description": "Generated from ../package.json, do not change!",
   "version": "1.0.0",
   "dependencies": {
-    "@sap/cloud-sdk-vdm-business-partner-service": "^1.0.0",
     "@sap/audit-logging": "^2.3.0",
+    "@sap/cloud-sdk-vdm-business-partner-service": "^1.0.0",
     "@sap/cds": "3.5.2",
     "@sap/hana-client": "2.3.144",
     "@sap/hdbext": "^6.0.0",
@@ -26,7 +26,7 @@
     "ws": "^6.1.4"
   },
   "engines": {
-    "node": "8.x",
+    "node": "10.x",
     "npm": "6.x"
   },
   "scripts": {
@@ -35,9 +35,6 @@
     "debug": "node server.js --debug",
     "debugIdea": "node %NODE_DEBUG_OPTION% server.js --debug",
     "build": "cds build/all --clean"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.2"
   },
   "private": true,
   "i18n": {
